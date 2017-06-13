@@ -27,7 +27,8 @@ Scope
 })();
 /*************************************************************************************
 ------------ ANSWER -------------------
-
+console.log(y) should print a undefined error;
+console.log(x) should pring "I'm a local variable"
 **************************************************************************************/
 
 
@@ -48,6 +49,7 @@ Hoisting
     console.log(x);
     console.log(foo());
 
+
     var x = "variable hosting!";
 
     function foo() {
@@ -58,7 +60,8 @@ Hoisting
 })();
 /*************************************************************************************
 ------------ ANSWER -------------------
-
+console.log(x) should print undefined
+console.log(y) would print an undefined error
 **************************************************************************************/
 
 
@@ -75,6 +78,7 @@ Date Object
 (function(testerOne){
   "use strict";
   //YOUR CODE HERE
+  var todayIs = new Date(2017, 5, 13)
   console.assert(todayIs == today, "#3 Test failed. Did you set the date correctly?");
 })(testerOne);
 
@@ -97,7 +101,7 @@ Warm up
 //console.log(add);
 /**************************************************************************************
 ------------ ANSWER -------------------
-
+inside it will print 4 and outside it will print an undefined error;
 **************************************************************************************/
 
 
@@ -114,8 +118,8 @@ Hoisting
 **************************************************************************************/
 (function(){
   "use strict";
+  var birthday = 1500000000;
   var date = new Date(birthday);
-  var birthday;
   bdayMsg();
   var bdayMsg = function(){
     return "You were born on " + date.toDateString();
@@ -137,6 +141,7 @@ Date object
 **************************************************************************************/
 (function(testerTwo){
   "use strict";
+  stringDate = "June 13, 2017"
   var today = new Date();
   console.log("#6 stringDate", stringDate)
   console.assert(stringDate == testerTwo, "#6 Test Failed. Did you set stringDate correctly?")
@@ -176,6 +181,10 @@ Hoisting
       }
     }
   }
+  pizza.sauceType = "tomato";
+  pizza.protein = "chicken";
+  pizza.orderNow = true;
+  pizza.sauce = true;
 
   console.log("# 7 pizza.pizzaMrk()", pizza.pizzaMkr());
   console.assert(pizza.pizzaMkr() == "We are making your pizza with tomato and chicken. Pickup in 20 minutes.", "#7 Test failed. Did you add the propeties? Did you set the values correctly? Did you fix the hoisting issues?")
@@ -215,12 +224,17 @@ HINTS:
 
   var benefit = {}
   //Add properties to 'benefit' using braket notation
+benefit["credit"] = 50;
+benefit["discount"] = 5;
+
 
   var accountCheck = function() {
 
     var greeting = function() {
-
+      name = "James";
       return "Hello " + name + ". Here is the status of your account."
+      goodStanding = true;
+      monthsActive = 13;
     }
 
     function accountStat() {
@@ -277,7 +291,7 @@ Compartmentalization
   var multiply = 2 * 8;
 
   function duplicate() {
-    multiply = 2 * 10;
+    var newMultiply = 2 * 10;
   };
 
   duplicate();
